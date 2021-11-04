@@ -9,9 +9,44 @@
 </head>
 
 <body>
+
+  <header>
+    <h1>
+      The Ultimate Friends Quiz! 
+    </h1>
+    <nav>
+      <ul>
+        <li>
+          <a href="#high-scores">View high scores</a>
+        </li>
+        <li>
+          <div>Time left: <span id="time"></span></div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="wrapper">
+  <div id="startScreen">
+    <p>Click the button take the quiz!</p>
+    <button id="startBtn">Start Quiz</button>
+  </div>
+
+  <div id="questions" class="hide">
+    <h2 id="questionTitle">Question Title</h2>
+    <div id="choices" class="choices">Question Choices</div>
+  </div>
+
+  <div id="endScreen" class="hide">
+    <h2>All finished</h2>
+    <p>Your final score is: <span id="finalScore"></span></p>
+    <p>Enter initials: <input type="text" id="initials" max="3"></p>
+    <button id="submitInitials">Submit</button>
+  </div>
+
+
   
- 
-  
+</div>
 
   <script src="assets/js/script.js"></script>
 </body>

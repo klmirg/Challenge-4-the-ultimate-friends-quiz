@@ -1,0 +1,17 @@
+header h1 {
+  text-align: center;
+}
+
+header ul li {
+  list-style: none;
+  text-align: right;
+}
+
+header ul li a {
+  text-decoration: none;
+  text-align: left;
+}
+
+.hide{
+  display: none;
+}
