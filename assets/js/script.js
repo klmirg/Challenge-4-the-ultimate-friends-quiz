@@ -87,6 +87,8 @@ var timerElement = document.getElementById("time")
 // referencing startBtn by id on html
 var startBtn = document.getElementById("startBtn");
 startBtn.onclick = startQuiz;
+var submitInitialsBtn = document.getElementById("submitInitialsBtn");
+submitInitialsBtn.onclick = saveHighScore;
 
 
 var currentQuestionIndex = 0;
@@ -179,8 +181,6 @@ function startQuiz(){
     // var submitInitials = document.getElementById("submitInitials");
     // submitInitials.onclick = saveHighScore;
 
-    saveHighScore ();
-// if they get 100% it says undefined%...
   }
 
   // fire off new function (savehighscore) when the submit button is clicked
@@ -190,50 +190,23 @@ function startQuiz(){
   // also included with the onclick function have it bring you to a highscores.html or
   // do the setAttribute class to hide for everything else and show the highscore div
 
+
+
   var saveHighScore = function () {
-    var submitInitials = document.querySelector("#submitInitials")
-    submitInitials.addEventListener("click", function(){
-      console.log("button clicked!");
+    var initials = submitInitials.value
 
-      var mostRecentScore = localStorage.getItem("mostRecentScore");
-      var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-      console.log(highScores);
+    if (initials !== "") {
+      var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
 
-      finalScore.innerText = mostRecentScore;
-      
       var newScore = {
-        userInitials: "",
-        userScore: ""
-      }
+        initials: initials,
+        score: finalScore
+      };
 
+      highscores.push(newScore);
+      window.localStorage.setItem("highscores", JSON.stringify(highscores));
 
-
-
-      
-    })
-    
-    
-    document.getElementById("initials").value 
-    
+    }
   };
-  
-  var loadHighScores = function () {
-    
-    // highScoreDiv.removeAttribute("class", "hide");
-    
-    var highScores = JSON.parse(localStorage.getItem("highScore")) || [];
-    console.log(highScores);
-    
-    var loadHighScoreArr = [
-      {
-        initials: "",
-        finalScore: "",
-      },
-    ];
-    
-    highScores = loadHighScoreArr;
 
-  }
-
-
-  loadHighScores();
+    
