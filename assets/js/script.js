@@ -1,30 +1,84 @@
 var questions = [
   {
     title: "How many years did Friends air for?",
-    choices:["7 years", "10 years", "3 years", "12 years"],
-    answer: "10 years",
+    choices:["Seven years", "Ten years", "Three years", "Twelve years"],
+    answer: "Ten years",
   },
   {
     title: "How many times did Ross get married?",
-    choices: ["3", "0", "1", "2"],
-    answer: "3",
+    choices: ["Three", "Zero", "One", "Two"],
+    answer: "Three",
   },
   {
-    title: "How many times did Ross get married?",
-    choices: ["3", "0", "1", "2"],
-    answer: "3",
+    title: "What is the name of Ross' first wife?",
+    choices: ["Emily", "Carol", "Susan", "Rachel"],
+    answer: "Carol",
   },
   {
-    title: "How many times did Ross get married?",
-    choices: ["3", "0", "1", "2"],
-    answer: "3",
+    title: "What famous line was Joey known for?",
+    choices: ["We were on a break!", "Oh. My. God.", "Pivot!", "How you doin'!"],
+    answer: "How you doin'!",
   },
   {
-    title: "How many times did Ross get married?",
-    choices: ["3", "0", "1", "2"],
-    answer: "3",
+    title: "What was the name of the coffee shop that they frequented?",
+    choices: ["Central Park Coffee", "Perk Cafe", "Central Perk", "None of the Above"],
+    answer: "Central Perk",
   },
-
+  {
+    title: "Which character has a twin?",
+    choices: ["Rachel", "Phoebe", "Joey", "Janice"],
+    answer: "Phoebe",
+  },
+  {
+    title: "Who was Monica's first kiss?",
+    choices: ["Ross", "Chandler", "Joey", "Pete"],
+    answer: "Ross",
+  },
+  {
+    title: "What is Phoebe's sisters name?",
+    choices: ["Jill", "Amy", "Ariel", "Ursula"],
+    answer: "Ursula",
+  },
+  {
+    title: "What is the name of the dancer that moved in with Joey?",
+    choices: ["Janice", "Janine", "Bonnie", "Erica"],
+    answer: "Janine",
+  },
+  {
+    title: "What is Joey's favorite food?",
+    choices: ["Pizza", "Sandwiches", "Spaghetti", "Burgers"],
+    answer: "Sandwiches",
+  },
+  {
+    title: "Who was the first person to find out Monica and Chandler are dating?",
+    choices: ["Phoebe", "Ross", "Rachel", "Joey"],
+    answer: "Joey",
+  },
+  {
+    title: "What location was never featured on the show?",
+    choices: ["London", "Barbados", "Paris", "New York"],
+    answer: "Paris",
+  },
+  {
+    title: "Who walked Phoebe down the aisle at her and Mike's wedding?",
+    choices: ["Ross", "Chandler", "Joey", "Her dad"],
+    answer: "Chandler",
+  },
+  {
+    title: "Which actor did NOT appear on the show?",
+    choices: ["Paul Rudd", "Bruce Willis", "Hank Azaria", "Mark Ruffalo"],
+    answer: "Mark Ruffalo",
+  },
+  {
+    title: "What is Chandler's middle name?",
+    choices: ["Marcel", "Bing", "Muriel", "Chandler didn't have a middle name."],
+    answer: "Muriel",
+  },
+  {
+    title: "Who says the last line of the series?",
+    choices: ["Chandler", "Joey", "Rachel", "Monica"],
+    answer: "Chandler"
+  }
 ]
 
 var questionDiv = document.getElementById("questions");
@@ -34,11 +88,13 @@ var timerElement = document.getElementById("time")
 var startBtn = document.getElementById("startBtn");
 startBtn.onclick = startQuiz;
 
+
 var currentQuestionIndex = 0;
 var time = 60;
 var timerId;
 var correct = 0;
-
+var initials = "";
+var finalScore = "";
 
 function startQuiz(){
   var startScreenDiv = document.getElementById("startScreen");
@@ -90,7 +146,7 @@ function startQuiz(){
     }
 
     if(time < 0){
-      time = 0;
+      endQuiz();
     }
 
     currentQuestionIndex++;
@@ -120,10 +176,64 @@ function startQuiz(){
     var finalScoreElement = document.getElementById("finalScore");
     finalScoreElement.textContent = finalScore[1] + "%";
 
+    // var submitInitials = document.getElementById("submitInitials");
+    // submitInitials.onclick = saveHighScore;
+
+    saveHighScore ();
+// if they get 100% it says undefined%...
   }
 
   // fire off new function (savehighscore) when the submit button is clicked
   // get the value of the user initials input (id="initials") ".value"
   // make an object "newScore" and have the first key be the user initials and the second key be the userScore
   // JSON.stringify and enter user initials along with user score into localstorage
-  // also included with thte onclick function have it bring you to a highscores.html or do the setAttribute class to hide for everything else and show the highscore div
+  // also included with the onclick function have it bring you to a highscores.html or
+  // do the setAttribute class to hide for everything else and show the highscore div
+
+  var saveHighScore = function () {
+    var submitInitials = document.querySelector("#submitInitials")
+    submitInitials.addEventListener("click", function(){
+      console.log("button clicked!");
+
+      var mostRecentScore = localStorage.getItem("mostRecentScore");
+      var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+      console.log(highScores);
+
+      finalScore.innerText = mostRecentScore;
+      
+      var newScore = {
+        userInitials: "",
+        userScore: ""
+      }
+
+
+
+
+      
+    })
+    
+    
+    document.getElementById("initials").value 
+    
+  };
+  
+  var loadHighScores = function () {
+    
+    // highScoreDiv.removeAttribute("class", "hide");
+    
+    var highScores = JSON.parse(localStorage.getItem("highScore")) || [];
+    console.log(highScores);
+    
+    var loadHighScoreArr = [
+      {
+        initials: "",
+        finalScore: "",
+      },
+    ];
+    
+    highScores = loadHighScoreArr;
+
+  }
+
+
+  loadHighScores();
