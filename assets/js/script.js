@@ -87,8 +87,7 @@ var timerElement = document.getElementById("time")
 // referencing startBtn by id on html
 var startBtn = document.getElementById("startBtn");
 startBtn.onclick = startQuiz;
-var submitInitialsBtn = document.getElementById("submitInitialsBtn");
-submitInitialsBtn.onclick = saveHighScore;
+
 
 
 var currentQuestionIndex = 0;
