@@ -187,13 +187,6 @@ function startQuiz(){
 
   }
 
-  // fire off new function (savehighscore) when the submit button is clicked
-  // get the value of the user initials input (id="initials") ".value"
-  // make an object "newScore" and have the first key be the user initials and the second key be the userScore
-  // JSON.stringify and enter user initials along with user score into localstorage
-  // also included with the onclick function have it bring you to a highscores.html or
-  // do the setAttribute class to hide for everything else and show the highscore div
-
 
 // This is the function to save the high scores
   var saveHighScore = function () {
