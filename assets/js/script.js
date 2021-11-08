@@ -177,8 +177,8 @@ function startQuiz(){
     var finalScoreElement = document.getElementById("finalScore");
     finalScoreElement.textContent = finalScore[1] + "%";
 
-    // var submitInitials = document.getElementById("submitInitials");
-    // submitInitials.onclick = saveHighScore;
+    var submitInitials = document.getElementById("submitInitials");
+    submitInitials.onclick = saveHighScore;
 
   }
 
