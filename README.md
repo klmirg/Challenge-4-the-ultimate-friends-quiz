@@ -10,6 +10,7 @@
 ## Website
 
 ## Image of Website
+![](assets/images/finalScreenShot.png)
 
 ## Contribution
-Made entirely by Ronya Gettis
+Made by Ronya Gettis
