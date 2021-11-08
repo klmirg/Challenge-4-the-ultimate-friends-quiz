@@ -1,3 +1,4 @@
+// The array of questions for the quiz
 var questions = [
   {
     title: "How many years did Friends air for?",
@@ -81,15 +82,16 @@ var questions = [
   }
 ]
 
+
 var questionDiv = document.getElementById("questions");
 var choicesElement = document.getElementById("choices");
-var timerElement = document.getElementById("time")
+var timerElement = document.getElementById("time");
+var submitInitialsBtn = document.getElementById("submitInitials");
 // referencing startBtn by id on html
 var startBtn = document.getElementById("startBtn");
 startBtn.onclick = startQuiz;
 
-
-
+// Setting up the variables
 var currentQuestionIndex = 0;
 var time = 60;
 var timerId;
@@ -97,6 +99,7 @@ var correct = 0;
 var initials = "";
 var finalScore = "";
 
+// The start quiz function
 function startQuiz(){
   var startScreenDiv = document.getElementById("startScreen");
   startScreenDiv.setAttribute("class", "hide")
@@ -117,6 +120,7 @@ function startQuiz(){
     }
   }
 
+  // This function gets the questions to display
   function displayQuestion(){
     var currentQuestion = questions[currentQuestionIndex];
 
@@ -139,7 +143,7 @@ function startQuiz(){
   }
 
   function handleClick(){
-
+    // This if statement is saying if you answer incorrectly, it is taking 10 seconds off your time
     if(this.value !== questions[currentQuestionIndex].answer ){
       time -= 10;
     } else {
@@ -159,6 +163,7 @@ function startQuiz(){
     }
   }
 
+  // This is the function to end the quiz
   function endQuiz(){
 
     clearInterval(timerId);
@@ -190,22 +195,31 @@ function startQuiz(){
   // do the setAttribute class to hide for everything else and show the highscore div
 
 
-
+// This is the function to save the high scores
   var saveHighScore = function () {
-    var initials = submitInitials.value
+   
+    var initials = submitInitials
 
     if (initials !== "") {
-      var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+      var highscores = 
+      JSON.parse(window.localStorage.getItem("highscores")) || [];
+      
 
       var newScore = {
         initials: initials,
         score: finalScore
       };
+      
 
       highscores.push(newScore);
-      window.localStorage.setItem("highscores", JSON.stringify(highscores));
+      window.localStorage.setItem("highscores", 
+      JSON.stringify(highscores));
 
+      
     }
   };
 
+  
+
+  submitInitialsBtn.onclick = saveHighScore;
     

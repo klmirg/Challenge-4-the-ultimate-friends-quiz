@@ -17,6 +17,7 @@
     <nav>
       <ul>
         <li>
+          <!-- This will take you to another HTML where the high scores are saved -->
           <a href="highscore.html">View high scores</a>
         </li>
         <li>
@@ -25,18 +26,18 @@
       </ul>
     </nav>
   </header>
-
+  <!-- This is the startScreenDiv with the startBtn -->
   <div class="wrapper">
     <div id="startScreen">
       <p>Click the button take the quiz!</p>
       <button id="startBtn">Start Quiz</button>
     </div>
-
+    <!-- This displays the questions and the choices -->
     <div id="questions" class="hide">
       <h2 id="questionTitle">Question Title</h2>
       <div id="choices" class="choices">Question Choices</div>
     </div>
-
+    <!-- This is the endScreen where you submit your final score and initials -->
     <div id="endScreen" class="hide">
       <h2>You've completed the quiz!</h2>
       <p>Your final score is: <span id="finalScore"></span></p>

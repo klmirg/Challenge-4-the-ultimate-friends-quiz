@@ -1,10 +1,13 @@
 body {
   color: darkred;
   text-align: center;
+  font-size: 30px;
+  font-family: sans-serif, helvetica, arial;
 }
 
 header h1 {
   text-align: center;
+  font-size: 50px;
 }
 
 header ul li {
@@ -15,7 +18,6 @@ header ul li {
 header ul li a {
   text-decoration: none;
   color: darkred;
-  
 }
 
 header ul li a:hover {
@@ -25,4 +27,5 @@ header ul li a:hover {
 .hide {
   display: none;
 }
+
 
